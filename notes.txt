@@ -1,0 +1,72 @@
+EX00
+
+echo "Z" > z : here we created a file called z and add to it "Z" string
+cat z : cat is for displaying file contents
+
+EX02 (
+total 1
+-r--r-xr-x 1 XX XX 40 Jun 1 23:42 testShell00
+)
+-touch testShell00
+-vim testShell00 then we add 40 char
+-chmod 455 : it has 3 blocks 3 values ,r(4),w(2),x(1) 
+block 1 : Owner
+blcok 2 : Group
+blcok 3 : Others
+
+EX03
+The public key is shared openly and can be distributed to anyone who needs to encrypt data that can only be decrypted with the corresponding private key.
+The private key is kept secret and stored on the client’s system. It should never be shared.
+
+ssh-keygen -t rsa -b 4096 -C "smnpod1@gmail.com"
+
+-t rsa : type of the encryption.
+-b 4096 : umber of bits in the key.
+-C "smnpod1@gmail.com" : label added to the SSH key.
+
+
+EX04
+ls -mtp
+-m: This option formats the output to display all files and directories on a single line, separated by commas.
+-t: This option sorts the files and directories by modification time, showing the most recently modified files first.
+-p: This option appends a / to directory names, so you can easily distinguish directories from files.
+
+EX05
+git log -n 5 --pretty=format:%H
+
+-n : --max-count=5
+--pretty=format:%H : customize the output format of git log
+
+EX06
+git ls-files --others --ignored --exclude-standard
+--ignored : Show only ignored files in the output.
+--exclude-standard : Add the standard Git exclusions: .git/info/exclude, .gitignore in each directory,
+--others : Show other (i.e. untracked) files in the output
+
+EX07
+diff a b > sw.diff
+created a file with content and b file empty content 
+
+diff a b > sw.diff : The diff command is telling you that in order to make file b match file a, you would need to add the 11 lines from file a to file b.
+
+EX08
+
+touch f12~ #f13# #f14#   
+
+find -type f \( -name '*~' -o -name '#*#' \) -print -delete
+
+find : The find command is used to search for files and directories in a directory hierarchy.
+-type f : restricts the search to regular files only (not directories, symbolic links, etc.).
+\( -name '*~' -o -name '#*#' \): 
+\( and \): These parentheses are used to group the conditions inside them
+-name '*~': This part looks for files whose names end with ~
+-o: This is the logical OR operator.
+-name '#*#': This part looks for files whose names start and end with #
+-print : will print them
+-delete : will delete them
+
+
+
+EX09
+are used by programs to identify file formats based on specific sequences of bytes at the beginning of a file. These sequences serve as identifiers or signatures that help software quickly recognize the type of a file
+<offset>  <type>  <pattern>  <description>
